@@ -30,11 +30,11 @@ const EventCard = ({ title, image, slug, location, date, time }: EventItem) => {
       </div>
       <p className="title">{title}</p>
       <div className="date-time">
-        <div>
+        <div className="flex items-center gap-2">
           <Image src={calendarIcon} alt="calendar" width={14} height={14} />
           <p>{date}</p>
         </div>
-        <div>
+        <div className="flex items-center gap-2">
           <Image src={clockIcon} alt="clock" width={14} height={14} />
           <p>{time}</p>
         </div>
