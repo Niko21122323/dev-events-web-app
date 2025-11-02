@@ -1,8 +1,13 @@
 import ExploreBtn from "@/components/ExploreBtn";
 import EventCard from "@/components/EventCard";
-import { events } from "@/lib/constants";
+import { IEvent } from "@/database";
 
-export default function Home() {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+export default async function Home() {
+  const response = await fetch(`${BASE_URL}/api/events`);
+  const { events } = await response.json();
+
   return (
     <section className="flex flex-col items-center">
       <h1 className="text-center">
@@ -15,11 +20,13 @@ export default function Home() {
       <div className="mt-20 space-y-7">
         <h3>Featured Events</h3>
         <ul className="events">
-          {events.map((event) => (
-            <li key={event.title} className="list-none">
-              <EventCard {...event} />
-            </li>
-          ))}
+          {events &&
+            events.length > 0 &&
+            events.map((event: IEvent) => (
+              <li key={event.title} className="list-none">
+                <EventCard {...event} />
+              </li>
+            ))}
         </ul>
       </div>
     </section>
