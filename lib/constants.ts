@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import event1 from "../public/assets/images/event1.png";
 import event2 from "../public/assets/images/event2.png";
 import event3 from "../public/assets/images/event3.png";
@@ -7,7 +6,7 @@ import event5 from "../public/assets/images/event5.png";
 import event6 from "../public/assets/images/event6.png";
 
 export type EventItem = {
-  image: StaticImageData;
+  image: string;
   title: string;
   slug: string;
   location: string;

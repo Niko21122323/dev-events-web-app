@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
+import { Titan_One, Martian_Mono } from "next/font/google";
 import "./globals.css";
-import LightRays from "@/components/LightRays";
 import Navbar from "@/components/Navbar";
 
-const schibstedGrotesk = Schibsted_Grotesk({
-  variable: "--font-schibsted-grotesk",
+const titanOne = Titan_One({
+  variable: "--font-titan-one",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const martianMono = Martian_Mono({
@@ -27,21 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
+        className={`${titanOne.variable} ${martianMono.variable} min-h-screen antialiased bg-background`}
       >
         <Navbar />
-        <div className="absolute inset-0 top-0 z-[-1] min-h-screen">
-          <LightRays
-            raysOrigin="top-center-offset"
-            raysColor="#5dfeca"
-            raysSpeed={0.5}
-            lightSpread={0.9}
-            rayLength={1.4}
-            followMouse={true}
-            mouseInfluence={0.02}
-            noiseAmount={0.0}
-            distortion={0.01}
-            className="custom-rays"
+        <div className="fixed top-0 left-0 w-full h-full min-h-screen bg-background z-[-1]">
+          <div
+            className="absolute h-full w-full z-0 min-h-screen"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.25), transparent 70%)",
+            }}
           />
         </div>
         <main>{children}</main>
