@@ -163,10 +163,12 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
   });
 
   return (
-    <Card className="w-full max-h-[85vh] flex flex-col">
+    <Card className="w-full max-h-[85vh] rounded-2xl overflow-hidden flex flex-col bg-background border-none">
       <CardHeader>
-        <CardTitle>Create New Event</CardTitle>
-        <CardDescription>
+        <CardTitle className="font-titan-one text-2xl text-foreground">
+          Create New Event
+        </CardTitle>
+        <CardDescription className="text-lg text-muted-foreground">
           Fill in the details to add a new event to the platform.
         </CardDescription>
       </CardHeader>
@@ -179,7 +181,6 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
           }}
         >
           <FieldGroup>
-            {/* Title */}
             <form.Field
               name="title"
               children={(field) => {
@@ -195,7 +196,7 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
                       aria-invalid={isInvalid}
-                      placeholder="React Summit 2024"
+                      placeholder="Game Development Summit 2024"
                       autoComplete="off"
                     />
                     {isInvalid && (
@@ -397,10 +398,13 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
                       value={field.state.value}
                       onValueChange={(value) => field.handleChange(value)}
                     >
-                      <SelectTrigger id={field.name}>
+                      <SelectTrigger
+                        id={field.name}
+                        className="rounded-[8px] py-6"
+                      >
                         <SelectValue placeholder="Select event mode" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-background rounded-[8px] border border-muted">
                         <SelectItem value="online">Online</SelectItem>
                         <SelectItem value="offline">Offline</SelectItem>
                         <SelectItem value="hybrid">Hybrid</SelectItem>
@@ -517,7 +521,7 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
                       onChange={(e) => field.handleChange(e.target.value)}
                       placeholder="09:00 - Registration&#10;10:00 - Opening Keynote&#10;11:00 - Workshop Session"
                       rows={5}
-                      className="min-h-24 resize-none"
+                      className="min-h-24 resize-none border border-muted rounded-[8px]"
                       aria-invalid={isInvalid}
                     />
                     <FieldDescription>
@@ -551,6 +555,7 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
                       }}
                       onBlur={field.handleBlur}
                       aria-invalid={isInvalid}
+                      className="pt-4"
                     />
                     <FieldDescription>
                       Upload a banner image for the event (JPG, PNG, WebP)

@@ -93,15 +93,62 @@ h6 {
   color: var(--foreground);
 }
 
-/* Override Radix Popover inline styles to allow custom width */
 [data-radix-popper-content-wrapper] {
   min-width: 0 !important;
   width: 50% !important;
   max-width: 50% !important;
 }
-
-/* Ensure the popover content uses our custom width */
 [data-radix-popper-content-wrapper] [data-radix-popover-content] {
   min-width: 0 !important;
   width: 100% !important;
+  border-radius: 30px;
+}
+
+[data-slot="input"] {
+  padding: 0px 12px !important;
+  min-height: 50px;
+}
+[data-slot="input"],
+[data-slot="input-group"] {
+  border: 1px solid var(--muted) !important;
+  border-radius: 8px !important;
+}
+[data-slot="input"]:focus,
+[data-slot="input-group"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+[data-slot="input"]::placeholder,
+[data-slot="input-group"]::placeholder {
+  color: var(--muted-foreground);
+}
+[data-slot="input"]:focus-visible,
+[data-slot="input-group-control"]:focus-visible {
+  --tw-ring-color: transparent;
+  box-shadow: none;
+  outline: none;
+}
+.has-\[\[data-slot\=input-group-control\]\:focus-visible\]\:ring-ring\/50:has(
+  [data-slot="input-group-control"]:focus-visible
+) {
+  --tw-ring-color: transparent !important;
+}
+
+[role="option"] {
+  border-radius: 4px;
+  transition: all 0.3 ease-in-out;
+  color: var(--muted-foreground);
+}
+[role="option"]:hover {
+  background-color: var(--primary) !important;
+  color: var(--foreground);
+}
+
+[data-slot="field-label"] {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--foreground);
+}
+[data-slot="field"] {
+  gap: 4px;
 }
