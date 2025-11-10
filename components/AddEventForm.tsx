@@ -555,7 +555,6 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
                       }}
                       onBlur={field.handleBlur}
                       aria-invalid={isInvalid}
-                      className="pt-4"
                     />
                     <FieldDescription>
                       Upload a banner image for the event (JPG, PNG, WebP)
@@ -571,17 +570,22 @@ export function AddEventForm({ onSuccess }: AddEventFormProps) {
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button
+        <button
           type="button"
-          variant="outline"
           onClick={() => form.reset()}
           disabled={isSubmitting}
+          className="border border-muted bg-background max-sm:text-sm px-4 sm:px-6 py-2.5 sm:py-4 rounded-full text-white font-semibold cursor-pointer hover:bg-sidebar transition-colors duration-300 ease-in-out leading-[1.1]"
         >
           Reset
-        </Button>
-        <Button type="submit" form="add-event-form" disabled={isSubmitting}>
+        </button>
+        <button
+          type="submit"
+          form="add-event-form"
+          disabled={isSubmitting}
+          className="bg-primary max-sm:text-sm px-4 sm:px-6 py-2.5 sm:py-4 rounded-full text-white font-semibold cursor-pointer hover:bg-sidebar-primary transition-colors duration-300 ease-in-out leading-[1.1]"
+        >
           {isSubmitting ? "Creating..." : "Create Event"}
-        </Button>
+        </button>
       </CardFooter>
     </Card>
   );

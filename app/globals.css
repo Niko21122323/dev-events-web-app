@@ -98,6 +98,18 @@ h6 {
   width: 50% !important;
   max-width: 50% !important;
 }
+@media (max-width: 1024px) {
+  [data-radix-popper-content-wrapper] {
+    max-width: 80% !important;
+    width: 80% !important;
+  }
+}
+@media (max-width: 640px) {
+  [data-radix-popper-content-wrapper] {
+    max-width: 90% !important;
+    width: 90% !important;
+  }
+}
 [data-radix-popper-content-wrapper] [data-radix-popover-content] {
   min-width: 0 !important;
   width: 100% !important;
@@ -151,4 +163,36 @@ h6 {
 }
 [data-slot="field"] {
   gap: 4px;
+}
+
+[data-slot="card-content"]::-webkit-scrollbar {
+  width: 12px;
+}
+[data-slot="card-content"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+[data-slot="card-content"]::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+[data-slot="card-content"]::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+  opacity: 0.8;
+}
+[data-slot="card-content"]::-webkit-scrollbar-button {
+  background-color: var(--primary);
+  height: 16px;
+}
+[data-slot="card-content"]::-webkit-scrollbar-button:vertical:decrement {
+  border-bottom: 2px solid transparent;
+}
+[data-slot="card-content"]::-webkit-scrollbar-button:vertical:increment {
+  border-top: 2px solid transparent;
+}
+/* Firefox scrollbar styling */
+[data-slot="card-content"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
 }
