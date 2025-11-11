@@ -15,7 +15,7 @@ const martianMono = Martian_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevMeet",
+  title: "PlayForge",
   description: "Dev Event Meet You Mustn't Miss",
 };
 

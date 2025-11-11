@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import logo from "../public/assets/icons/logo.png";
+import logo from "../public/assets/icons/logo-icon.png";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { AddEventForm } from "./AddEventForm";
 
@@ -24,8 +24,14 @@ const Navbar = () => {
       <nav className="container mx-auto px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between gap-6">
           <Link href="/" className="flex items-center gap-3">
-            <Image src={logo} alt="logo" width={24} height={24} />
-            <h6>PlayForge</h6>
+            <Image
+              src={logo}
+              alt="logo"
+              width={60}
+              height={60}
+              className="w-[60px] h-auto"
+            />
+            <h6 className="text-2xl">PlayForge</h6>
           </Link>
           <Popover open={isPopoverOpen} onOpenChange={handleOpenChange}>
             <PopoverTrigger asChild>

@@ -93,6 +93,16 @@ h6 {
   color: var(--foreground);
 }
 
+ul {
+  list-style: none !important;
+}
+
+.eventCardDropShadow {
+  box-shadow:
+    oklch(0.488 0.243 264.376 / 0.25) 0px 2px 5px -1px,
+    oklch(0.488 0.243 264.376 / 0.3) 0px 1px 3px -1px;
+}
+
 [data-radix-popper-content-wrapper] {
   min-width: 0 !important;
   width: 50% !important;
