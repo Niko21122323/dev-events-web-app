@@ -107,9 +107,11 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="">
-          <h1 className="text-6xl text-foreground pb-2">Event Description</h1>
-          <p className="text-lg text-muted-foreground">{description}</p>
+        <div className="mb-6">
+          <h1 className="text-6xl text-foreground pb-4">Event Description</h1>
+          <p className="text-lg text-muted-foreground max-w-[850px]">
+            {description}
+          </p>
         </div>
 
         <div className="grid grid-cols-12 gap-10">
@@ -119,7 +121,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
               alt="Event Banner"
               width={800}
               height={800}
-              className="aspect-video rounded-2xl my-6"
+              className="max-h-[400px] w-full object-cover rounded-2xl mb-6"
             />
 
             <div className="flex-col-gap-2">

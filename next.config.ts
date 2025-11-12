@@ -31,6 +31,12 @@ const nextConfig: NextConfig = {
 
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
+
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "5mb", // Increase if needed, e.g. "10mb"
+    },
+  },
 };
 
 export default nextConfig;
