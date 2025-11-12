@@ -113,6 +113,16 @@ ul {
   );
 }
 
+.bookGradient {
+  background: #0210ca;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 16, 202, 0.3) 0%,
+    rgba(2, 16, 202, 0.2) 10%,
+    rgba(0, 0, 0, 0) 30%
+  );
+}
+
 [data-radix-popper-content-wrapper] {
   min-width: 0 !important;
   width: 50% !important;

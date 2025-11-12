@@ -22,24 +22,35 @@ const BookEvent = ({ eventId, slug }: { eventId: string; slug: string }) => {
   };
 
   return (
-    <div id="book-event">
+    <div className="pt-6">
       {submitted ? (
-        <p className="text-sm">Thank you for signing up!</p>
+        <p className="text-sm text-muted-foreground">
+          Thank you for signing up!
+        </p>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email">Email Address</label>
+          <div className="flex flex-col gap-2 mb-6">
+            <label
+              htmlFor="email"
+              className="text-base text-foreground font-medium"
+            >
+              Email Address
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               id="email"
               placeholder="Enter your email address"
+              className="focus:outline-none border border-muted rounded-[8px] py-3 px-4 placeholder:text-muted-foreground text-foreground"
             />
           </div>
 
-          <button type="submit" className="button-submit">
-            Submit
+          <button
+            type="submit"
+            className="bg-primary max-sm:text-sm px-4 sm:px-6 py-2.5 sm:py-4 rounded-full text-white font-semibold cursor-pointer hover:bg-sidebar-primary transition-colors duration-300 ease-in-out leading-[1.1]"
+          >
+            Book A Spot
           </button>
         </form>
       )}
