@@ -23,15 +23,17 @@ const Navbar = () => {
     <header>
       <nav className="container mx-auto px-6 lg:px-8 py-6">
         <div className="flex items-center justify-between gap-6">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-1 sm:gap-3">
             <Image
               src={logo}
               alt="logo"
               width={60}
               height={60}
-              className="w-[60px] h-auto"
+              className="max-[340px]:w-8 w-10 sm:w-[60px] h-auto"
             />
-            <h6 className="text-2xl">PlayForge</h6>
+            <h6 className="max-[340px]:text-sm text-lg sm:text-2xl">
+              PlayForge
+            </h6>
           </Link>
           <Popover open={isPopoverOpen} onOpenChange={handleOpenChange}>
             <PopoverTrigger asChild>

@@ -103,6 +103,16 @@ ul {
     oklch(0.488 0.243 264.376 / 0.3) 0px 1px 3px -1px;
 }
 
+.bgGradient {
+  background: #0210ca;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 16, 202, 0.15) 0%,
+    rgba(2, 16, 202, 0.1) 5%,
+    rgba(0, 0, 0, 0) 5%
+  );
+}
+
 [data-radix-popper-content-wrapper] {
   min-width: 0 !important;
   width: 50% !important;

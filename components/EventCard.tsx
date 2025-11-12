@@ -21,7 +21,7 @@ const EventCard = ({ title, image, slug, location, date, time }: EventItem) => {
         />
       </div>
       <div className="px-4 pb-4">
-        <h4 className="text-foreground text-2xl font-medium capitalize py-4">
+        <h4 className="text-foreground max-[425px]:text-base text-lg sm:text-xl xl:text-2xl font-medium capitalize py-4">
           {title}
         </h4>
         <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ const EventCard = ({ title, image, slug, location, date, time }: EventItem) => {
             height={32}
             className="w-8 h-auto"
           />
-          <p className="text-muted-foreground text-lg font-medium capitalize">
+          <p className="text-muted-foreground max-[425px]:text-sm text-base lg:text-lg font-medium capitalize">
             {location}
           </p>
         </div>
@@ -45,7 +45,7 @@ const EventCard = ({ title, image, slug, location, date, time }: EventItem) => {
               height={32}
               className="w-8 h-auto"
             />
-            <p className="text-muted-foreground text-lg font-medium capitalize">
+            <p className="text-muted-foreground max-[425px]:text-sm text-base lg:text-lg font-medium capitalize">
               {date}
             </p>
           </div>
@@ -57,7 +57,7 @@ const EventCard = ({ title, image, slug, location, date, time }: EventItem) => {
               height={32}
               className="w-8 h-auto"
             />
-            <p className="text-muted-foreground text-lg font-medium capitalize">
+            <p className="text-muted-foreground max-[425px]:text-sm text-base lg:text-lg font-medium capitalize">
               {time}
             </p>
           </div>
