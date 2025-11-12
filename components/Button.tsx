@@ -4,9 +4,10 @@ const Button = ({ name, url }: { name: string; url: string }) => {
   return (
     <Link
       href={url}
-      className="flex items-center justify-center w-full bg-primary px-6 py-3 rounded-full text-foreground hover:bg-sidebar-primary transition-colors duration-300 ease-in-out"
+      className="relative overflow-hidden flex items-center justify-center w-full bg-transparent px-6 py-3 rounded-full text-foreground border border-muted group"
     >
-      {name}
+      <span>{name}</span>
+      <div className="z-[-1] absolute bottom-0 left-0 w-full h-0 bg-primary group-hover:h-full transition-all duration-300 ease-in-out"></div>
     </Link>
   );
 };
