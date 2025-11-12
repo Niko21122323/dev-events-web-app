@@ -26,6 +26,7 @@ export default async function Home() {
             together. PlayForge connects developers and designers through
             meetups, showcases, and shared passion for play.
           </p>
+
           <div className="w-fit pt-6">
             <Button name="Create an event" url="/" />
           </div>
