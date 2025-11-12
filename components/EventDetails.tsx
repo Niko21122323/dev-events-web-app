@@ -24,16 +24,21 @@ const EventDetailItem = ({
 }) => (
   <div className="flex items-center gap-2 pb-1">
     <Image src={icon} alt={alt} width={32} height={32} />
-    <p className="text-muted-foreground text-lg">{label}</p>
+    <p className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground">
+      {label}
+    </p>
   </div>
 );
 
 const EventAgenda = ({ agendaItems }: { agendaItems: string[] }) => (
   <div className="">
-    <h2 className="text-4xl pb-2">Agenda</h2>
+    <h2 className="text-3xl xl:text-4xl pb-2">Agenda</h2>
     <ul>
       {agendaItems.map((item) => (
-        <li key={item} className="text-lg text-muted-foreground">
+        <li
+          key={item}
+          className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground"
+        >
           {item}
         </li>
       ))}
@@ -108,14 +113,16 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
     <section className="py-24">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="mb-6">
-          <h1 className="text-6xl text-foreground pb-4">Event Description</h1>
-          <p className="text-lg text-muted-foreground max-w-[850px]">
+          <h1 className="text-4xl sm:text-5xl xl:text-6xl text-foreground pb-4">
+            Event Description
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-[750px] xl:max-w-[950px]">
             {description}
           </p>
         </div>
 
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-4 lg:gap-10">
+          <div className="col-span-1 md:col-span-7 xl:col-span-8">
             <Image
               src={image}
               alt="Event Banner"
@@ -125,12 +132,14 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
             />
 
             <div className="flex-col-gap-2">
-              <h2 className="text-4xl pb-2">Overview</h2>
-              <p className="text-lg text-muted-foreground">{overview}</p>
+              <h2 className="text-3xl xl:text-4xl pb-2">Overview</h2>
+              <p className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground">
+                {overview}
+              </p>
             </div>
 
             <div className="flex-col-gap-2 my-6">
-              <h2 className="text-4xl pb-2">Event Details</h2>
+              <h2 className="text-3xl xl:text-4xl pb-2">Event Details</h2>
               <EventDetailItem
                 icon={CalendarIcon}
                 alt="calendar"
@@ -149,22 +158,24 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
             <EventAgenda agendaItems={agenda} />
 
             <div className="flex-col-gap-2 my-6">
-              <h2 className="text-4xl pb-2">About the Organizer</h2>
-              <p className="text-lg text-muted-foreground">{organizer}</p>
+              <h2 className="text-3xl xl:text-4xl pb-2">About the Organizer</h2>
+              <p className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground">
+                {organizer}
+              </p>
             </div>
 
             <EventTags tags={tags} />
           </div>
 
-          <aside className="col-span-4">
+          <aside className="col-span-1 md:col-span-5 xl:col-span-4 md:sticky md:top-4 h-fit">
             <div className="border border-muted p-4 rounded-2xl bookGradient">
-              <h2 className="text-4xl pb-2">Book Your Spot</h2>
+              <h2 className="text-3xl xl:text-4xl pb-2">Book Your Spot</h2>
               {bookings > 0 ? (
-                <p className="text-lg text-muted-foreground">
+                <p className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground">
                   Join {bookings} people who have already booked their spot!
                 </p>
               ) : (
-                <p className="text-lg text-muted-foreground">
+                <p className="max-[425px]:text-sm text-base xl:text-lg text-muted-foreground">
                   Be the first to book your spot!
                 </p>
               )}
@@ -173,16 +184,22 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
             </div>
           </aside>
         </div>
-
-        <div className="flex w-full flex-col gap-4 pt-20">
-          <h2 className="text-4xl pb-6">Similar Events</h2>
-          <div className="events">
-            {similarEvents.length > 0 &&
-              similarEvents.map((similarEvent: IEvent) => (
-                <EventCard key={similarEvent.title} {...similarEvent} />
-              ))}
+        {similarEvents.length > 0 && (
+          <div className="flex w-full flex-col gap-4 pt-10 lg:pt-20">
+            <h2 className="text-4xl lg:pb-4">Similar Events</h2>
+            <ul className="list-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-10">
+              {similarEvents.length > 0 &&
+                similarEvents.map((similarEvent: IEvent) => (
+                  <li
+                    key={similarEvent.title}
+                    className="list-none rounded-2xl bg-background overflow-hidden border border-primary/30 lg:border-transparent hover:border-primary/30 transition-all duration-300 ease-in-out bgGradient"
+                  >
+                    <EventCard {...similarEvent} />
+                  </li>
+                ))}
+            </ul>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

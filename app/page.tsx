@@ -28,7 +28,7 @@ export default async function Home() {
           </p>
 
           <div className="w-fit pt-6">
-            <Button name="Create an event" url="/" />
+            <Button name="View Events" url="#events" />
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="space-y-7">
+        <div className="space-y-7" id="events">
           <h2 className="text-foreground max-[425px]:text-2xl text-3xl md:text-4xl lg:text-5xl text-center pb-6">
             Upcoming Events
           </h2>

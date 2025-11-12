@@ -83,6 +83,10 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -109,7 +113,7 @@ ul {
     0deg,
     rgba(2, 16, 202, 0.15) 0%,
     rgba(2, 16, 202, 0.1) 5%,
-    rgba(0, 0, 0, 0) 5%
+    rgba(0, 0, 0, 0) 15%
   );
 }
 
