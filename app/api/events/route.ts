@@ -6,9 +6,11 @@ import Event from "@/database/event.model";
 export async function POST(req: NextRequest) {
   try {
     await connectDB();
+
     const formData = await req.formData();
 
     let event;
+
     try {
       event = Object.fromEntries(formData.entries());
     } catch (e) {
@@ -19,38 +21,15 @@ export async function POST(req: NextRequest) {
     }
 
     const file = formData.get("image") as File;
+
     if (!file)
       return NextResponse.json(
         { message: "Image file is required" },
         { status: 400 },
       );
 
-    // Get tags and agenda strings
-    const tagsString = formData.get("tags") as string;
-    const agendaString = formData.get("agenda") as string;
-
-    // Validate they exist
-    if (!tagsString || !agendaString) {
-      return NextResponse.json(
-        { message: "Tags and agenda are required" },
-        { status: 400 },
-      );
-    }
-
-    // Parse with error handling
-    let tags, agenda;
-    try {
-      tags = JSON.parse(tagsString);
-      agenda = JSON.parse(agendaString);
-    } catch (e) {
-      console.error("JSON Parse Error:", e);
-      console.error("Tags string:", tagsString);
-      console.error("Agenda string:", agendaString);
-      return NextResponse.json(
-        { message: "Invalid JSON format for tags or agenda" },
-        { status: 400 },
-      );
-    }
+    let tags = JSON.parse(formData.get("tags") as string);
+    let agenda = JSON.parse(formData.get("agenda") as string);
 
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
@@ -61,6 +40,7 @@ export async function POST(req: NextRequest) {
           { resource_type: "image", folder: "DevEvent" },
           (error, results) => {
             if (error) return reject(error);
+
             resolve(results);
           },
         )
@@ -94,7 +74,9 @@ export async function POST(req: NextRequest) {
 export async function GET() {
   try {
     await connectDB();
+
     const events = await Event.find().sort({ createdAt: -1 });
+
     return NextResponse.json(
       { message: "Events fetched successfully", events },
       { status: 200 },

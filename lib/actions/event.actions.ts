@@ -58,20 +58,9 @@ export const createEvent = async (formData: FormData) => {
       };
     }
 
-    // Parse tags and agenda with error handling
-    let tags, agenda;
-    try {
-      tags = JSON.parse(tagsString);
-      agenda = JSON.parse(agendaString);
-    } catch (e) {
-      console.error("JSON Parse Error:", e);
-      console.error("Tags string:", tagsString);
-      console.error("Agenda string:", agendaString);
-      return {
-        success: false,
-        error: "Invalid JSON format for tags or agenda",
-      };
-    }
+    // Parse tags and agenda
+    const tags = JSON.parse(tagsString);
+    const agenda = JSON.parse(agendaString);
 
     // Upload image to Cloudinary
     const { v2: cloudinary } = await import("cloudinary");
